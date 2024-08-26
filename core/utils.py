@@ -29,7 +29,7 @@ def send_email(email, subject, template_path, context):
     msg = EmailMessage(
         subject,
         html_message,
-        'PT Academy',  # Replace with the actual sender's email
+        'Innomatch',  # Replace with the actual sender's email
         [email]
     )
     msg.content_subtype = "html"  # Main content is now text/html

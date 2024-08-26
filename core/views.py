@@ -25,16 +25,16 @@ def login(request):
 
         if user is not None:  # Cheking If User Exists in the database
             auth.login(request, user)  # Logs in User
-            ctx = {"user": username, "date": datetime.now()}
-            message = get_template("mails/mail2.html").render(ctx)
-            msg = EmailMessage(
-                "Login on your account",
-                message,
-                "The InnoMatch Team",
-                [user.email],
-            )
-            msg.content_subtype = "html"  # Main content is now text/html
-            msg.send()
+            # ctx = {"user": username, "date": datetime.now()}
+            # message = get_template("mails/mail.html").render(ctx)
+            # msg = EmailMessage(
+            #     "Login on your account",
+            #     message,
+            #     "The InnoMatch Team",
+            #     [user.email],
+            # )
+            # msg.content_subtype = "html"  # Main content is now text/html
+            # msg.send()
             return redirect("dashboard")  # Redirects to home view
         else:
             messages.error(
