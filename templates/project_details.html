@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+<div class="content-wrapper">
+    <div class="container-xxl container-p-y">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <h3 class="card-header">{{ project.title }}</h3>
+                    
+                    <!-- Project Overview -->
+                    <div class="card-body">
+                        <div class="d-flex align-items-start align-items-sm-center gap-4">
+                          <img src="{{ project.logo.url }}" alt="Project Logo" class="d-block rounded" height="100" width="100" id="uploadedAvatar">
+                          <div class="button-wrapper">
+                              <p class="mb-3"><i class="bx bx-calendar"></i> <b>Start Date:</b> {{ project.start_date }}</p>
+                              {% if project.end_date %}
+                              <p class="mb-3"><i class="bx bx-calendar"></i> <b>End Date:</b> 24th November, 2024</p>
+                              {% else %}
+                              <p class="mb-3"><i class="bx bx-calendar"></i> <b>End Date:</b> - </p>
+                              {% endif %}
+                              <p class="mb-3"><i class="bx bx-line-chart"></i> <b>Status:</b> {{ project.status }}</p>
+                          </div>
+                        </div>
+                    </div>
+                    
+                    <hr class="my-0">
+                    
+                    <!-- Project Details -->
+                    <div class="card-body">
+                        <div>
+                            <h4>About this project</h4>
+                            <p class=""><i class="bx bx-person"></i> <b>Author:</b> {{project.user.first_name}} {{project.user.last_name}}</p>
+                            <p>{{ project.description }}</p>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <h5><i class="bx bx-coin-stack"></i> Budget</h5>
+                                <p class="budget">${{ project.budget|floatformat:0|intcomma }}</p>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <h5><i class="bx bx-calendar"></i> Date Created</h5>
+                                <p class="created-at">{{ project.created_at }}</p>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <h5><i class="bx bx-calendar"></i> Updated At</h5>
+                                <p class="updated-at">{{ project.updated_at }}</p>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <h5><i class="bx bx-grid"></i> Category</h5>
+                                <p class="category">{{ project.category }}</p>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                              <h5><i class="bx bx-user"></i> Author</h5>
+                              <p class="author">{{ project.user.first_name }} {{project.user.last_name}}</p>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                              <h5><i class="bx bx-user"></i> Contact Information</h5>
+                              <a class="author" href="mailto:{{project.user.email}}">{{ project.user.email }}</a>
+                            </div>
+                        </div>
+                        <div class="support">
+                            <p><b>Supporting Project Files:</b> {% for area in mentorship_areas %} {{ area }} {% endfor %}</a></p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

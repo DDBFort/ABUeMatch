@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="content-wrapper">
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold">Find the Right Mentor for Your Journey</h4>
+        <p>At InnoMatch, we believe that the right mentor can transform your journey from idea to reality. Our mentors are industry experts, innovators, and experienced professionals eager to guide and support you as you navigate the challenges of entrepreneurship. Whether you're seeking advice on business strategies, product development, or personal growth, our mentors are here to provide valuable insights and help you succeed.</p>
+        <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+            {% for mentor in mentors %}
+            <div class="col">
+              <div class="card h-100">
+                <img class="card-img-top" src="{{mentor.profile_picture.url}}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{mentor.first_name}} {{mentor.last_name}}</h5>
+                  <h6 class="card-subtitle text-muted mb-2">{{mentor.industry_expertise}}</h6>
+                  <p class="card-text">
+                    {{mentor.bio | truncatechars:50}}
+                  </p>
+                  <a href="{% url 'mentor-details' mentor.id %}" class="btn btn-primary"><i class="bx bx-user"></i> View Profile</a>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

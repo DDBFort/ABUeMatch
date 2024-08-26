@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% if projects %}
+<div class="content-wrapper">
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold">Explore Innovative Projects</h4>
+        <p>Discover a world of creativity and innovation! Browse through a diverse collection of projects from visionary entrepreneurs, startups, and creatives. Whether you’re seeking inspiration or looking to collaborate, you’ll find projects that are pushing boundaries and solving real-world problems.</p>
+        <div class="row">
+            {% for project in projects %}
+            <div class="col-md-6 col-lg-4 mb-3">
+                <div class="card">
+                <div class="card-header">{{project.title}}</div>
+                <div class="card-body">
+                    <h5 class="card-title">{{project.title}}</h5>
+                    <p class="card-text">
+                    {{project.description | truncatechars:10 }}
+                    </p>
+                    <a href="{% url 'project-details' project.id %}" class="btn btn-primary">Go somewhere</a>
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="content-wrapper">
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <div class="misc-wrapper">
+            <h2 class="mb-2 mx-2">You don't have any projects :(</h2>
+            <p class="mb-4 mx-2">It looks like you haven’t created any projects just yet. Don’t worry—now is the perfect time to bring your ideas to life! Start by crafting your first project, where you can share your vision, track progress, and make your mark. Whether you're a seasoned professional or just starting out, every big idea begins with one step.</p>
+            <p class="fw-bold mb-4 mx-2">
+                Ready to make an impact?
+            </p>
+            <p class="mb-4 mx-2">
+                Click the button below to create your first project and begin your journey today!
+            </p>
+            <a href="{% url 'add-project' %}" class="btn btn-primary">Create a project</a>
+            <div class="mt-3">
+              <img src="https://img.freepik.com/free-vector/hand-drawn-no-data-concept_52683-127823.jpg?t=st=1724511642~exp=1724515242~hmac=4e2dfacd5618f85927b7702e6a6d0d2fa49f67902a7dd6ae7f24f12093851a1c&w=2000" alt="page-misc-error-light" width="500" class="img-fluid" data-app-dark-img="illustrations/page-misc-error-dark.png" data-app-light-img="illustrations/page-misc-error-light.png">
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock content %}

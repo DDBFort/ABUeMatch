@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="content-wrapper">
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold">Bring your vision to life</h4>
+        <p>Every great idea starts with a plan, and this is your chance to turn your vision into a reality. Whether you're building something groundbreaking or refining an existing concept, your journey begins here.</p>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success alert-dismissable" role="alert">{{message}}</div>
+            {% endfor %}
+        {% endif %}
+        <div class="col-xl">
+            <div class="card mb-4">
+              <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label class="form-label" for="project-title">Project Title</label>
+                        <div class="input-group input-group-merge">
+                            <span id="project-title-icon" class="input-group-text"><i class="bx bx-file"></i></span>
+                            <input type="text" class="form-control" id="project-title" name="title" placeholder="Enter your project title" required>
+                        </div>
+                    </div>
+                
+                    <div class="mb-3">
+                        <label class="form-label" for="project-description">Project Description</label>
+                        <div class="input-group input-group-merge">
+                            <span id="project-description-icon" class="input-group-text"><i class="bx bx-text"></i></span>
+                            <textarea class="form-control" id="project-description" name="description" placeholder="Provide a brief description of your project" required></textarea>
+                        </div>
+                    </div>
+                
+                    <div class="mb-3">
+                        <label class="form-label" for="start-date">Start Date</label>
+                        <div class="input-group input-group-merge">
+                            <span id="start-date-icon" class="input-group-text"><i class="bx bx-calendar"></i></span>
+                            <input type="date" class="form-control" id="start-date" name="start_date" required>
+                        </div>
+                    </div>
+                
+                    <div class="mb-3">
+                        <label class="form-label" for="end-date">End Date (Optional)</label>
+                        <div class="input-group input-group-merge">
+                            <span id="end-date-icon" class="input-group-text"><i class="bx bx-calendar"></i></span>
+                            <input type="date" class="form-control" id="end-date" name="end_date">
+                        </div>
+                    </div>
+                
+                    <div class="mb-3">
+                        <label class="form-label" for="category">Category</label>
+                        <input type="text" class="form-control" id="category" name="category" placeholder="Enter the category of your project" required>
+                    </div>
+                
+                    <div class="mb-3">
+                        <label class="form-label" for="budget">Budget (Optional)</label>
+                        <input type="number" class="form-control" id="budget" name="budget" step="0.01" placeholder="Enter your project budget">
+                    </div>
+                
+                    <div class="mb-3">
+                        <label class="form-label" for="project-files">Project Files (Optional)</label>
+                        <input type="file" class="form-control" id="project-files" name="project_files">
+                    </div>
+                
+                    <button type="submit" class="btn btn-primary">Submit Project</button>
+                </form>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

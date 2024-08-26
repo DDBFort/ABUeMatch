@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to InnoMatch!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background-color: #4CAF50;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #ffffff;
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .content {
+            padding: 20px;
+            color: #333;
+        }
+
+        .content p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content ul li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .content ul li strong {
+            color: #4CAF50;
+        }
+
+        .content a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .footer {
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+            background-color: #f4f4f9;
+            border-radius: 0 0 10px 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Welcome to InnoMatch!</h1>
+    </div>
+    <div class="content">
+        <p>Dear {{user}},</p>
+        <p>We are thrilled to have you join the InnoMatch community! Get ready to take your entrepreneurial journey to the next level with access to a vast network of mentors, resources, and tools designed to help you succeed.</p>
+
+        <p><strong>Here's what you can look forward to:</strong></p>
+        <ul>
+            <li><strong>Submit Your Ideas:</strong> Easily share your business ideas and receive valuable feedback from industry experts.</li>
+            <li><strong>Connect with Mentors:</strong> Find the perfect mentor to guide your startup and accelerate your growth.</li>
+            <li><strong>Learn & Grow:</strong> Access educational resources, webinars, and interactive workshops tailored to your business needs.</li>
+            <li><strong>Track Your Progress:</strong> Manage your submissions, reviews, and mentorship connections all in one place.</li>
+        </ul>
+
+        <p>If you have any questions or need assistance, don’t hesitate to reach out to our support team at <a href="mailto:support@innomatch.com">support@innomatch.com</a>.</p>
+        <p>To start your journey, log in to your account <a href="https://innomatch.com" style="color: #4CAF50;">here</a> and begin exploring all the exciting opportunities waiting for you.</p>
+
+        <p>We’re excited to see you succeed!</p>
+        <p>Best regards,<br>Team InnoMatch</p>
+    </div>
+    <div class="footer">
+        <p>&copy; {{current_year}} InnoMatch. All rights reserved.</p>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="content-wrapper">
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold">Explore Innovative Projects</h4>
+        <p>Discover a world of creativity and innovation! Browse through a diverse collection of projects from visionary entrepreneurs, startups, and creatives. Whether you’re seeking inspiration or looking to collaborate, you’ll find projects that are pushing boundaries and solving real-world problems.</p>
+        <div class="row">
+            {% for project in projects %}
+            <div class="col-md-6 col-lg-4 mb-3">
+                <div class="card">
+                  <div class="card-header">{{project.title}}</div>
+                  <div class="card-body">
+                    <h5 class="card-title">{{project.title}}</h5>
+                    <p class="card-text">
+                      {{project.description | truncatechars:10 }}
+                    </p>
+                    <a href="{% url 'project-details' project.id %}" class="btn btn-primary">Read More</a>
+                  </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

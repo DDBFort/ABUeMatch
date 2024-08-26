@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Content wrapper -->
+<div class="content-wrapper">
+<!-- Content -->
+<div class="container-xxl flex-grow-1 container-p-y">
+  <div class="row">
+    {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-success" role="alert">{{message}}</div>
+      {% endfor %}
+    {% endif %}
+    <div class="col-lg-12 mb-4 order-0">
+      <div class="card">
+        <div class="d-flex align-items-end row">
+          <div class="col-sm-7">
+            <div class="card-body">
+              <h5 class="card-title text-primary">Welcome Chief</h5>
+              <p class="mb-4">
+                So, what would you like to do today?
+              </p>
+              <!-- <a href="javascript:;" class="btn btn-sm btn-outline-primary">View Badges</a> -->
+            </div>
+          </div>
+          <div class="col-sm-5 text-center text-sm-left">
+            <div class="card-body pb-0 px-0 px-md-4">
+              <img
+                src="https://tenor.com/en-GB/view/cat-gif-4807728093068826302.gif"
+                height="140"
+                alt="View Badge User"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h4 class="lead fw-bold">What would you like to do today?</h4>
+    <p>Explore new opportunities, connect with mentors, or take the next step in your project journey. Whatever your goal, we're here to help you achieve it.</p>
+    <div class="col-md-6 col-lg-4 mb-3">
+      <div class="card h-100">
+        <img class="card-img-top" src="{% static 'assets/img/mentor.jpg' %}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Mentorship</h5>
+          <p class="card-text">
+            Find the perfect mentor to elevate your entrepreneurial skills quickly.
+          </p>
+          <a href="{% url 'mentors' %}" class="btn btn-outline-primary">Meet your Mentors🌟</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 mb-3">
+      <div class="card h-100">
+        <img class="card-img-top" src="{% static 'assets/img/learning.jpg' %}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Learning and Development</h5>
+          <p class="card-text">
+            Learning from experienced professionals enriches your personal and professional life.
+          </p>
+          <a href="https://alison.com/" target="_blank" class="btn btn-outline-primary">Get Started 💯</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 mb-3">
+      <div class="card h-100">
+        <img class="card-img-top" src="{% static 'assets/img/project.jpg' %}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Projects</h5>
+          <p class="card-text">
+            Turn your project ideas into successful ventures with mentor support.
+          </p>
+          <a href="{% url 'add-project' %}" class="btn btn-outline-primary">Innovate🚀!</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- / Content -->
+{% endblock content %}

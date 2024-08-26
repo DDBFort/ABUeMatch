@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Assignment Notification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background-color: #4CAF50;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #ffffff;
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .content {
+            padding: 20px;
+            color: #333;
+        }
+
+        .content p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content ul li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .content ul li strong {
+            color: #4CAF50;
+        }
+
+        .content a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .footer {
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+            background-color: #f4f4f9;
+            border-radius: 0 0 10px 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>You've Been Assigned to a New Project!</h1>
+    </div>
+    <div class="content">
+        <p>Dear {{mentor.first_name}} {{mentor.last_name}},</p>
+        <p>We are excited to inform you that you have been assigned as a mentor for the following project:</p>
+
+        <ul>
+            <li><strong>Project Title:</strong> {{project.title}}</li>
+            <li><strong>Description:</strong> {{project.description}}</li>
+            <li><strong>Start Date:</strong> {{project.start_date}}</li>
+            <li><strong>End Date:</strong> {{project.end_date}}</li>
+            <li><strong>Status:</strong> {{project.status}}</li>
+        </ul>
+
+        <p>We believe your expertise will greatly benefit the project's progress. Please feel free to reach out to the project team to introduce yourself and discuss how you can best assist in the mentorship process.</p>
+
+        <p>If you have any questions or require further information, don't hesitate to contact us at <a href="mailto:support@innomatch.com">support@innomatch.com</a>.</p>
+
+        <p>We appreciate your contribution and look forward to seeing the project flourish under your guidance.</p>
+
+        <p>Best regards,<br>Team InnoMatch</p>
+    </div>
+    <div class="footer">
+        <p>&copy; {{current_year}} InnoMatch. All rights reserved.</p>
+    </div>
+</div>
+
+</body>
+</html>

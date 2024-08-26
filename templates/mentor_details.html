@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+<div class="content-wrapper">
+    <div class="container-xxl container-p-y">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <h3 class="card-header">{{ project.title }}</h3>
+                    
+                    <!-- Project Overview -->
+                    <div class="card-body">
+                        <div class="d-flex align-items-start align-items-sm-center gap-4">
+                          <img src="{{ mentor.profile_picture.url }}" alt="Project Logo" class="d-block rounded" height="100" width="100" id="uploadedAvatar">
+                          <div class="button-wrapper">
+                            <p class="mb-3"><i class="bx bx-user"></i> <b>Name:</b> {{ mentor.first_name }} {{ mentor.last_name }}</p>
+                            <p class="mb-3"><i class="bx bxs-tachometer"></i> <b>Experince:</b> {{ mentor.years_of_experience }} Years</p>
+                            
+
+                          </div>
+                        </div>
+                    </div>
+                    
+                    <hr class="my-0">
+                    
+                    <!-- Project Details -->
+                    <div class="card-body">
+                        <div>
+                            <h4>About {{mentor.first_name}}</h4>
+                            <p>{{ mentor.bio }}</p>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <h5><i class="bx bxl-linkedin"></i> LinkedIn</h5>
+                                <p class="budget"><a href="{{ mentor.linkedin_profile }}" target="_blank">{{mentor.first_name}} {{mentor.last_name}}</a></p>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <h5><i class="bx bx-envelope"></i> Email</h5>
+                                <p class="budget"><a href="{{ mentor.email }}" target="_blank">{{ mentor.email }}</a></p>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <h5><i class="bx bx-compass"></i> Industry Expertise</h5>
+                                <p class="category">{{ mentor.industry_expertise }}</p>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <h5><i class="bx bxs-user-badge"></i> Company</h5>
+                                <p class="category">{{ mentor.company }}</p>
+                            </div>
+                        </div>
+                        <div class="support">
+                            <p><b>Mentorship Areas:</b> {% for area in mentorship_areas %} {{ area.area }}, {% endfor %}</a></p>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="card">
+                    <h5 class="card-header">{{ mentor.first_name }} {{ mentor.last_name }}'s Mentored Projects</h5>
+                    <div class="card-body">
+                        <div class="table-responsive text-nowrap">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Project</th>
+                                        <th>Author</th>
+                                        <th>Collaborators</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for project in mentored_projects %}
+                                    <tr>
+                                        <td>
+                                            <i class="fab fa-project-diagram fa-lg text-primary me-3"></i> 
+                                            <strong>{{ project.title }}</strong>
+                                        </td>
+                                        <td>{{ project.user.first_name }} {{ project.user.last_name }}</td>
+                                        <td>
+                                            <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                                {% if project.collaborators.exists %}
+                                                {% for collaborator in project.collaborators.all %}
+                                                    {{ collaborator.first_name }} {{ collaborator.last_name }}{% if not forloop.last %}, {% endif %}
+                                                {% endfor %}
+                                                {% else %}
+                                                -
+                                                {% endif %}
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <span class="badge 
+                                            {% if project.status == 'Completed' %}bg-label-success{% elif project.status == 'In Progress' %}bg-label-info{% else %}bg-label-warning{% endif %}
+                                            me-1">
+                                                {{ project.status }}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="">
+                                                        <i class="bx bx-edit-alt me-1"></i> Edit
+                                                    </a>
+                                                    <a class="dropdown-item" href="">
+                                                        <i class="bx bx-trash me-1"></i> Delete
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {% empty %}
+                                    <tr>
+                                        <td colspan="5" class="text-center">No projects are being mentored by this mentor.</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
