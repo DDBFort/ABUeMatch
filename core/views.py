@@ -30,7 +30,7 @@ def login(request):
             # msg = EmailMessage(
             #     "Login on your account",
             #     message,
-            #     "The InnoMatch Team",
+            #     "The ABUeMatch Team",
             #     [user.email],
             # )
             # msg.content_subtype = "html"  # Main content is now text/html
@@ -82,7 +82,7 @@ def register(request):
                 ctx = {"user": username}
                 message = get_template("mails/mail.html").render(ctx)
                 msg = EmailMessage(
-                    "Welcome to InnoMatch",
+                    "Welcome to ABUeMatch",
                     message,
                     "David from Innomatch",
                     [email],

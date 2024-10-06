@@ -167,19 +167,19 @@ MEDIA_ROOT = os.path.join(BASE_DIR / "/home/innomatch/mysite/media")
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 JAZZMIN_SETTINGS = {
     # title of the window (Will default to current_admin_site.site_title if absent or None)
-    "site_title": "InnoMatch Admin",
+    "site_title": "ABUeMatch Admin",
     # Title on the login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
-    "site_header": "InnoMatch",
+    "site_header": "ABUeMatch",
     # Title on the brand (19 chars max) (defaults to current_admin_site.site_header if absent or None)
-    "site_brand": "InnoMatch",
+    "site_brand": "ABUeMatch",
     # CSS classes that are applied to the logo above
     "site_logo_classes": "img-circle",
     # Relative path to a favicon for your site, will default to site_logo if absent (ideally 32x32 px)
     "site_icon": None,
     # Welcome text on the login screen
-    "welcome_sign": "InnoMatch Administration",
+    "welcome_sign": "ABUeMatch Administration",
     # Copyright on the footer
-    "copyright": "InnoMatch Ltd",
+    "copyright": "ABUeMatch Ltd",
     #############
     # Side Menu #
     #############
